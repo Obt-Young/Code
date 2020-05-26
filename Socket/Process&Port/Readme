@@ -1,1 +1,15 @@
 
+
+https://stackoverflow.com/questions/14388706/how-do-so-reuseaddr-and-so-reuseport-differ/14388707?r=SearchResults#14388707
+SO_REUSEADDR       socketA        socketB       Result
+---------------------------------------------------------------------
+  ON/OFF       192.168.0.1:21   192.168.0.1:21    Error (EADDRINUSE)
+  ON/OFF       192.168.0.1:21      10.0.0.1:21    OK
+  ON/OFF          10.0.0.1:21   192.168.0.1:21    OK
+   OFF             0.0.0.0:21   192.168.1.0:21    Error (EADDRINUSE)
+   OFF         192.168.1.0:21       0.0.0.0:21    Error (EADDRINUSE)
+   ON              0.0.0.0:21   192.168.1.0:21    OK
+   ON          192.168.1.0:21       0.0.0.0:21    OK
+  ON/OFF           0.0.0.0:21       0.0.0.0:21    Error (EADDRINUSE)
+  
+  
